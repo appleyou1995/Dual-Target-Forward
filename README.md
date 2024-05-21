@@ -26,20 +26,6 @@ If a pre-defined advantage (Target) or a pre-defined number of favourable fixing
 | **Leverage**              | 200.00%                                                                                          |
 
 
-#### Additional Risk Disclosures
-
-Before investing in this product, investors should carefully consider its appropriateness, suitability, and the following additional risks:
-1. **Issuer Risk**: Any failure by the issuer to perform its contractual obligations, when due, may result in loss of all or part of the invested capital.
-2. **Counterparty Risk**: Any failure by Commerzbank AG to perform contractual obligations, when due, may result in the loss of all or part of the invested capital.
-3. **Market Risk**: Various market factors may affect the value of the investment or the underlying assets, including but not limited to the impact of volatility, interest rates, dividends (if any), foreign exchange.
-4. **Liquidity/Secondary Market Risk**: Under normal market conditions, Commerzbank will endeavor to provide a secondary market price. However, Commerzbank has no obligation to make a secondary market in the instruments concerned. Accordingly, under some circumstances, the secondary market for the investment may be limited and subject to wide bid/offer spreads.
-5. **Reinvestment Risk**: The risk that the investment redeems prior to maturity at a time when reinvestment opportunities are not favorable to the investor.
-6. **Redemption Risk**: The risk that the investor may receive substantially less than the amount invested if he/she liquidates the investment prior to maturity.
-7. **Tax Risk**: There may be tax implications based on where the investor resides. Please consult a tax professional before investing.
-8. **Legal Risk**: There may be legal restrictions depending on where the investor is domiciled. It is advised to seek legal guidance prior to investing. For additional information on the product features and risks, please contact your sales advisor or refer to the contacts page.
-
----
-
 ### Knock-Out Event 1
 
 The Knock-Out Event 1 is deemed to have occurred when the Cumulative Intrinsic Value is greater than or equal to the Target.
@@ -115,3 +101,17 @@ t.b.d.
 ### Calculation Agent
 
 Commerzbank AG
+
+---
+
+### Additional Risk Disclosures
+
+Before investing in this product, investors should carefully consider its appropriateness, suitability, and the following additional risks:
+1. **Issuer Risk**: Any failure by the issuer to perform its contractual obligations, when due, may result in loss of all or part of the invested capital.
+2. **Counterparty Risk**: Any failure by Commerzbank AG to perform contractual obligations, when due, may result in the loss of all or part of the invested capital.
+3. **Market Risk**: Various market factors may affect the value of the investment or the underlying assets, including but not limited to the impact of volatility, interest rates, dividends (if any), foreign exchange.
+4. **Liquidity/Secondary Market Risk**: Under normal market conditions, Commerzbank will endeavor to provide a secondary market price. However, Commerzbank has no obligation to make a secondary market in the instruments concerned. Accordingly, under some circumstances, the secondary market for the investment may be limited and subject to wide bid/offer spreads.
+5. **Reinvestment Risk**: The risk that the investment redeems prior to maturity at a time when reinvestment opportunities are not favorable to the investor.
+6. **Redemption Risk**: The risk that the investor may receive substantially less than the amount invested if he/she liquidates the investment prior to maturity.
+7. **Tax Risk**: There may be tax implications based on where the investor resides. Please consult a tax professional before investing.
+8. **Legal Risk**: There may be legal restrictions depending on where the investor is domiciled. It is advised to seek legal guidance prior to investing. For additional information on the product features and risks, please contact your sales advisor or refer to the contacts page.

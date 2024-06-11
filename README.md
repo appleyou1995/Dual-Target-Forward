@@ -28,12 +28,12 @@ If a pre-defined advantage (Target) or a pre-defined number of favourable fixing
 
 ### Knock-Out Event 1
 
-The Knock-Out Event 1 is deemed to have occurred when the Cumulative Intrinsic Value is greater than or equal to the Target.
+The Knock-Out Event 1 is deemed to have occurred when the "**_Cumulative Intrinsic Value_**" is greater than or equal to the "**_Target_**".
 
 
 ### Knock-Out Event 2
 
-The Knock-Out Event 2 is deemed to have occurred when the Cumulative Digital Value is equal to the Target Count.
+The Knock-Out Event 2 is deemed to have occurred when the "**_Cumulative Digital Value_**" is equal to the "**_Target Count_**".
 
 
 ### Cumulative Intrinsic Value

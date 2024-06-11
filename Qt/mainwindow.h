@@ -3,26 +3,25 @@
 
 #include <QMainWindow>
 
-QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
 }
-QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
     void on_pushButton_clicked();
+    void on_pushButton_clear_clicked();   // 清除所有數值的槽函數
+    void on_pushButton_default_clicked(); // 填入預設值的槽函數
 
 private:
     Ui::MainWindow *ui;
-    double Strike;
-    double Notional;
 };
+
 #endif // MAINWINDOW_H

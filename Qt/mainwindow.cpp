@@ -171,15 +171,14 @@ void MainWindow::on_pushButton_clicked()
     double r2      = ui -> lineEdit_r2 -> text().toDouble();
     int NumPath    = ui -> lineEdit_NumPath -> text().toInt();
 
-    int n = 240; // 12 months * 20 trading days per month
+    int monthDay = 20;
+    int delayDay = 0;
+    int n = monthDay * 12 * T;
 
     // Simulation
     Simulation sim(S0, sigma, r1, r2, T, NumPath, n);
 
     // Contract Parameters
-    int monthDay = 20;
-    int delayDay = 0;
-
     double Strike         = ui -> lineEdit_Strike -> text().toDouble();
     double Notional       = ui -> lineEdit_Notional -> text().toDouble();
     double UpfrontPremium = ui -> lineEdit_UpfrontPremium -> text().toDouble();

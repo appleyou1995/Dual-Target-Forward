@@ -1,2 +1,46 @@
-
+# 忽略 macOS 系統自動生成的文件
 .DS_Store
+
+# 忽略 Build 資料夾
+build/
+build-*/
+
+# 忽略 Qt 特定文件
+*.user
+*.pro.user
+*.qbs.user
+*.pro.user.*
+*.qbs.user.*
+
+# 忽略 CMake 特定文件
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# 忽略自動生成的文件
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+
+# 忽略二進制文件
+*.exe
+*.dll
+*.so
+*.dylib
+*.app
+*.out
+*.a
+*.o
+
+# 忽略調試文件
+*.log
+*.dmp
+*.dSYM/
+*.stackdump
+
+# 忽略臨時文件
+*.tmp
+*.temp
+*.swp
+*~

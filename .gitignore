@@ -24,7 +24,6 @@ ui_*.h
 qrc_*.cpp
 
 # 忽略二進制文件
-*.exe
 *.dll
 *.so
 *.dylib

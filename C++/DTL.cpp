@@ -45,10 +45,21 @@ private:
 
 class Contract {
 public:
-    Contract(const vector<vector<double>>& S, double Strike, double Notional, double UpfrontPremium, double Leverage, double r, int monthDay, int month_max, int delayDay, int TargetCount, double Target)
-        : S(S), Strike(Strike), Notional(Notional), UpfrontPremium(UpfrontPremium), Leverage(Leverage), r(r), monthDay(monthDay), month_max(month_max), delayDay(delayDay), TargetCount(TargetCount), Target(Target) {
+    Contract(const vector<vector<double>>& S, double Strike, double Notional, double UpfrontPremium, double Leverage, double r, int monthDay, int T, int delayDay, int TargetCount, double Target)
+        : S(S), Strike(Strike), Notional(Notional), UpfrontPremium(UpfrontPremium), Leverage(Leverage), r(r), monthDay(monthDay), delayDay(delayDay), TargetCount(TargetCount), Target(Target) {
         NumPath = S.size();
+
+        // Set month_max based on T
+        if (T == 1) {
+            month_max = 12;
+        }
+        else {
+            month_max = 24;
+        }
+
+        // Adjust month_max based on the path size
         month_max = min(month_max, int(S[0].size() / monthDay) - 1);
+
         calculatePayoffs();
     }
 
@@ -125,9 +136,10 @@ int main() {
     double sigma = 0.07134707139575819;
     double r1 = 0.009;
     double r2 = 0.012;
-    int T = 1;
+    int T = 1; // Change this to 2 for T=2
     int NumPath = 100000;
-    int n = 240; // 12 months * 20 trading days per month
+    int monthDay = 20;
+    int n = monthDay * 12 * T; // Dynamic n based on T
 
     // Simulation
     Simulation sim(S0, sigma, r1, r2, T, NumPath, n);
@@ -139,12 +151,10 @@ int main() {
     double Leverage = 2;
     double Target = 0.1; // USD per EUR
     int TargetCount = 4;
-    int monthDay = 20;
     int delayDay = 0;
-    int month_max = 12;
 
     // Contract
-    Contract contract(sim.getPaths(), Strike, Notional, UpfrontPremium, Leverage, r1, monthDay, month_max, delayDay, TargetCount, Target);
+    Contract contract(sim.getPaths(), Strike, Notional, UpfrontPremium, Leverage, r1, monthDay, T, delayDay, TargetCount, Target);
 
     // Results
     contract.displayResults();

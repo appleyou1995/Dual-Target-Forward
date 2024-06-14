@@ -8,16 +8,17 @@
    - B09703009 許靖
 
 2. **作業檔案**
-   1. 利用 Julia 評價 Dual Target Forward
-   2. 利用 C++ 評價 Dual Target Forward
-   3. 利用 C++ 與 Qt 建立評價 Dual Target Forward 合約的 GUI 檔案
+   1. [利用 Julia 評價 Dual Target Forward](https://github.com/appleyou1995/Dual-Target-Forward/tree/main/Julia)
+   2. [利用 C++ 評價 Dual Target Forward](https://github.com/appleyou1995/Dual-Target-Forward/tree/main/C%2B%2B)
+   3. [利用 C++ 與 Qt 建立評價 Dual Target Forward 合約的 GUI 檔案](https://github.com/appleyou1995/Dual-Target-Forward/tree/main/Qt)
 
 3. **相關說明**
-   - 商品合約內容（[Dual Target Forward Contract Details](https://github.com/appleyou1995/Dual-Target-Forward/blob/main/README.md#dual-target-forward-contract-details)）
-   - GUI 操作說明（[README.md](https://github.com/appleyou1995/Dual-Target-Forward/blob/main/Qt/README.md)）
+   - 商品合約內容（[README.md](https://github.com/appleyou1995/Dual-Target-Forward/blob/main/README.md#dual-target-forward-contract-details)、[商品介紹投影片](https://github.com/appleyou1995/Dual-Target-Forward/blob/main/DTF%20Details%20and%20Simulation%20(Slides).pdf)）
+   - GUI 操作說明（[Qt/README.md](https://github.com/appleyou1995/Dual-Target-Forward/blob/main/Qt/README.md)）
 
-4. **商品性質概要**  <br>
-Dual Target Forward 產品屬於比較具有風險性質的商品，因為它讓投資人賺錢的時候只能賺一倍，賠錢的時候卻會賠兩倍。當市場風向對發行商不利時會讓投資人趕快將獲利了結、提早出場；而對發行商有利時會讓投資人無法出場拿比較少的錢、甚至賠錢。
+4. **商品性質概要**
+   - Dual Target Forward 產品屬於比較具有風險性質的商品，因為它讓投資人賺錢的時候只能賺一倍，賠錢的時候卻會賠兩倍。
+   - 當市場風向對發行商不利時會讓投資人趕快將獲利了結、提早出場；而對發行商有利時會讓投資人無法出場拿比較少的錢、甚至賠錢。
 
 <br>
 

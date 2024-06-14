@@ -1,4 +1,27 @@
-# Dual Target Forward
+# 【財務演算法】期末團體作業 Dual Target Forward
+
+## 作業說明
+
+1. **組員**
+   - D11723002 張詠瑄
+   - D11723003 尤柔蘋
+   - B09703009 許靖
+
+2. **作業檔案**
+   1. 利用 Julia 評價 Dual Target Forward
+   2. 利用 C++ 評價 Dual Target Forward
+   3. 利用 C++ 與 Qt 建立評價 Dual Target Forward 合約的 GUI 檔案
+
+3. **相關說明**
+   - 商品合約內容（[Dual Target Forward Contract Details](https://github.com/appleyou1995/Dual-Target-Forward/edit/main/README.md#dual-target-forward-contract-details)）
+   - GUI 操作說明（[README.md](https://github.com/appleyou1995/Dual-Target-Forward/blob/main/Qt/README.md)）
+
+4. **商品性質概要**  <br>
+Dual Target Forward 產品屬於比較具有風險性質的商品，因為它讓投資人賺錢的時候只能賺一倍，賠錢的時候卻會賠兩倍。當市場風向對發行商不利時會讓投資人趕快將獲利了結、提早出場；而對發行商有利時會讓投資人無法出場拿比較少的錢、甚至賠錢。
+
+<br>
+
+## Dual Target Forward Contract Details
 
 The Dual Target Forward is a product which offers the client the opportunity of obtaining a conversion rate which is more favourable than the average forward rate for comparable series of standard forward exchange transactions. 
 

@@ -13,7 +13,7 @@
    3. 利用 C++ 與 Qt 建立評價 Dual Target Forward 合約的 GUI 檔案
 
 3. **相關說明**
-   - 商品合約內容（[Dual Target Forward Contract Details](https://github.com/appleyou1995/Dual-Target-Forward/edit/main/README.md#dual-target-forward-contract-details)）
+   - 商品合約內容（[Dual Target Forward Contract Details](https://github.com/appleyou1995/Dual-Target-Forward/main/README.md#dual-target-forward-contract-details)）
    - GUI 操作說明（[README.md](https://github.com/appleyou1995/Dual-Target-Forward/blob/main/Qt/README.md)）
 
 4. **商品性質概要**  <br>

@@ -15,35 +15,26 @@ pygui(true)
 datareader = pyimport("pandas_datareader")
 pd = pyimport("pandas")
 
-## 抓股價資料
+## 抓美元兌歐元即期匯率資料
 
 ticker = "DEXUSEU"
 
-start_date = "2019-10-18"
-end_date = "2020-10-20"
-# start_date = "2009-03-16"
-# end_date = "2010-03-16"
+start_date = "2013-05-15"
+end_date = "2014-05-15"
+#start_date = "2019-10-18"
+#end_date = "2020-10-20"
 
 FX = datareader.DataReader(ticker, "fred", start_date, end_date)[ticker].dropna().values
 日報酬率 = diff(log.(FX),dims=1)
 
-## 抓利率資料
-
-codes = ["USD12MD156N","EUR12MD156N"]   # 12 個月美元 LIBOR Rate 與 12 個月歐元 LIBOR Rate
-rate = datareader.DataReader(codes,"fred",start_date,end_date).values[end,:]/100
-
 ## 參數估計
 
-μ = vec(mean(日報酬率,dims=1)*252)
-# μ = 0.0582435363213501
-σ = std(日報酬率,dims=1)*√252
-# σ = 0.07134707139575819
+Mu = vec(mean(日報酬率,dims=1)*252)
+Sigma = std(日報酬率,dims=1)*√252
 S0 = FX[end]
-# 1.1824
 
 d = length(S0)                # 維度
-r = rate
-# r = [0.009,0.012]
+r = [0.009, 0.012]            # 假設 12 個月美元 LIBOR Rate 與 12 個月歐元 LIBOR Rate
 monthDay = 20                 # 每月模擬天數
 yearDay = 12 * monthDay       # 一年模擬天數
 delayDay = 0                  # 延遲天數
@@ -51,7 +42,7 @@ n = yearDay + delayDay        # 總模擬天數
 T = n/yearDay
 Δt = T/n
 t = [j*Δt for j=0:n]
-NumPath = 100000        # 模擬 path 數
+NumPath = 100000              # 模擬 path 數
 
 function Simulation(S0, sigma, r, T, NumPath, n, seed=123457; seed_fixed=true)
     if seed_fixed
@@ -73,7 +64,7 @@ function Simulation(S0, sigma, r, T, NumPath, n, seed=123457; seed_fixed=true)
     return S
 end
 
-S = Simulation(S0, σ, r, T, NumPath, n; seed_fixed=true)
+S = Simulation(S0, Sigma, r, T, NumPath, n; seed_fixed=true)
 
 # 畫出模擬路徑圖檢查
 fontsize = 10
@@ -87,7 +78,6 @@ function plot_simulation(S::Matrix)
     plt.ylabel("FX", fontsize=fontsize)
     title = "Simulation Paths of GBM (Num of Path=$NumPath, n=$n)"
     plt.title(title, fontsize=fontsize)
-    # plt.legend(loc="best", fontsize=fontsize1)
 end
 
 plt.figure()
@@ -96,13 +86,13 @@ plt.show()
 
 ## 合約訂定
 
-Notional = 1_000_000 # EUR
-UpfrontPremium = 50_000 # USD
-Strike = 1.335 # USD per EUR
-Target = 0.1 # USD per EUR
+Notional = 1_000_000     # EUR
+UpfrontPremium = 50_000  # USD
+Strike = 1.335           # USD per EUR
+Target = 0.1             # USD per EUR
 TargetCount = 4
 Leverage = 2
-month_max = 12 # 共配息 12 個月
+month_max = 12           # 共配息 12 個月
 
 # target
 現金流量折現 = zeros(NumPath, month_max)
@@ -118,7 +108,7 @@ for i in 1:NumPath
         if S[i,monthDay*month+delayDay] >= Strike
             次數[i,month] = 1
         end
-        if sum(點數[i,:])<=Target || sum(次數[i,:])<=TargetCount
+        if sum(點數[i,:])>=Target || sum(次數[i,:])==TargetCount
             提前出場[i,month] = 1
             if S[i,monthDay*month+delayDay] >= Strike
             現金流量折現[i,month] = ( Notional * S[i,monthDay*month+delayDay] - Notional * Strike ) * exp(-r[1]*t[monthDay*month+delayDay])
@@ -147,25 +137,25 @@ vec(各期出場損益)
 plt.figure()
 plt.hist(pay, 35, facecolor="royalblue", edgecolor="black", alpha=0.6)
 approx = percentile(pay[:], α)
-# plt.axvline(approx, color="red", ls="--")
 plt.xlabel("payoff",fontsize=15)
 plt.ylabel("frequency",fontsize=15)
 plt.title("PAYOFF HISTOGRAM - COUNT",fontweight="bold",fontsize=20)
 plt.show()
 
 # (a) 於交易日 (期初), 利用模擬方法探討此結構型商品之評價。
-printfmt("商品之評價為 {:.5f}", mean(pay)) # -3503681.03519
+printfmt("商品之評價為 {:.5f}", mean(pay))
 
 # (b) 於交易日 (期初), 利用模擬方法探討此結構型商品之評價的標準差。
 # 用樣本標準差去猜母體標準差
-printfmt("商品之評價的標準差為 {:.5f}", std(pay)/√NumPath) # 12178.47964
+printfmt("商品之評價的標準差為 {:.5f}", std(pay)/√NumPath)
 
 # (c) 於交易日 (期初), 利用模擬方法探討此結構型商品之提前出場機率。
-提前出場次數 = sum(sum(提前出場, dims=2))   # 258.00000
+提前出場次數 = sum(sum(提前出場, dims=2))
 printfmt("提前出場次數為 {:.5f}", sum(sum(提前出場, dims=2)))
-提前出場機率 = 提前出場次數/NumPath         # 258.00000
+提前出場機率 = 提前出場次數/NumPath
 printfmt("提前出場機率為 {:.5f}", 提前出場機率)
 
-# (e) 於交易日 (期初), 利用模擬方法探討此結構型商品之風險衡量 (VaR or ExpectedShortfall or …)。大約是何情況會發生極端損失?
-printfmt("當商品之評價低於 {:.5f}", quantile(vec(pay),α))
+# (e) 於交易日 (期初), 利用模擬方法探討此結構型商品之風險衡量 (VaR or ExpectedShortfall or …)。
+#     大約是何情況會發生極端損失?
+printfmt("當商品之評價低於 {:.5f}", -quantile(vec(pay),α))
 println(" 時會發生極端損失")
